@@ -2,6 +2,10 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InventoryPage {
     private WebDriver driver;
@@ -24,5 +28,23 @@ public class InventoryPage {
 
     public String getCartBadgeCount() {
         return driver.findElement(cartBadge).getText();
+    }
+
+    public List<String> getAllItemTitles() {
+        List<WebElement> titleElements = driver.findElements(By.className("inventory_item_name"));
+        List<String> titles = new ArrayList<>();
+        for (WebElement element : titleElements) {
+            titles.add(element.getText());
+        }
+        return titles;
+    }
+
+    public List<String> getAllItemDescriptions() {
+        List<WebElement> descElements = driver.findElements(By.className("inventory_item_desc"));
+        List<String> descriptions = new ArrayList<>();
+        for (WebElement element : descElements) {
+            descriptions.add(element.getText());
+        }
+        return descriptions;
     }
 }

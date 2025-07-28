@@ -16,7 +16,7 @@ public class LogoutPage {
     public void logout() {
         driver.findElement(menuButton).click();
         try {
-            Thread.sleep(1000); // use WebDriverWait in real code
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
